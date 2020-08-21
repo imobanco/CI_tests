@@ -1,0 +1,16 @@
+name: Testando o CI
+
+on:
+  pull_request:
+    branchs:
+      - "master"
+
+jobs:
+  meu-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: teste
+
+      - name: O que é esse nome
+        run: echo "init"
