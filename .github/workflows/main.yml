@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     env:
-      var: ${{ secrets.PEDRO_ORG }}
       var_2: ${{ secrets.PEDRO_REPO }}
     steps:
       - uses: actions/checkout@v2
       - name: meu echo
         run: |
           ls
+          read
           echo teste1
           ls -la
       - name: Rodando script shell
@@ -28,4 +28,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          
