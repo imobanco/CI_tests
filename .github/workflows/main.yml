@@ -15,7 +15,8 @@ jobs:
       - name: Docker create
         run: |
           docker build --tag pedroregispoar/teste-ci .
-          docker run pedroregispoar/teste-ci sh -c 'cat out.log'
+          docker run --env MY_VAR="$var_2" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
+
 
 
 #      - name: Rodando script shell
