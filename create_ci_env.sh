@@ -33,7 +33,7 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
     echo 'echo -e '$env_variable_name'=${{ '"$ci_env_variable_name"' }} >> '"$ENV_OUTPUT_FILE_NAME" >> "$RUN_SCRIPT_ECHO_SECRET"
 done
 
-echo -e 'exit 0' > "$RUN_SCRIPT_ECHO_SECRET"
+echo -e 'exit 0' >> "$RUN_SCRIPT_ECHO_SECRET"
 
 chmod +x echo_secret.sh
 
