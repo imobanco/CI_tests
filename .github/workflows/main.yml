@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: meu echo
         env:
-          var: value
-          var_2: value_2
+          var: {{ secrets.PEDRO_ORG }}
+          var_2: {{ secrets.PEDRO_REPO }}
         run: echo "$var" "$var_2"
 
