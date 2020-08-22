@@ -37,14 +37,15 @@ echo -e 'exit 0' >> "$RUN_SCRIPT_ECHO_SECRET"
 
 chmod +x echo_secret.sh
 
-echo '---> cat echo_secret.sh'
+echo '---> BEGIN: cat echo_secret.sh'
 cat echo_secret.sh
+echo '---> END: cat echo_secret.sh'
 
 ./echo_secret.sh
 
-echo '---> cat "$ENV_OUTPUT_FILE_NAME"'
+echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
 cat "$ENV_OUTPUT_FILE_NAME"
-
+echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
