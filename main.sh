@@ -5,7 +5,7 @@ set -euxo pipefail
 
 
 # Coleta do CI os segredos e escreve estes no arquivo `.env`
-# ./create_ci_env.sh .env.example
+./create_ci_env.sh .env.example
 
 
 # Constrói a imagem recebendo via linha de comando 3 parâmetros (os mesmos do `build_image.sh`, ver nele):
