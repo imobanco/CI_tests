@@ -17,17 +17,18 @@ jobs:
 #          docker build --tag pedroregispoar/teste-ci .
 #          docker run --env MY_VAR="$my_secret" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
 
+      - name:
+        run: |
+          echo env_variable_name=${{ secrets.CI_SECRET_KEY }} > file.txt
+          cat file.txt
+          ./run.sh
+
       - name: Executa o ./main "$1" "$2" "$3"
         run: ./main.sh registry app 0.0.1
 
 #      - name: Executa usa a imagem construída
 #        run: docker run registry/app:0.0.1 sh -c 'cat .env'
 
-      - name:
-        run: |
-          echo env_variable_name=${{ secrets.CI_SECRET_KEY }} > file.txt
-          cat file.txt
-          ./run.sh
 
 #      - name: Rodando script shell
 #        run: ./run.sh
