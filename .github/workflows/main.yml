@@ -9,23 +9,23 @@ jobs:
     env:
       var_2: ${{ secrets.PEDRO_REPO }}
     steps:
-      - name: Cópia o repositório (checkout)
+      - name: Cópia o repositório (checkout para o commit atual)
         uses: actions/checkout@v2
 
       - name: Docker
         run: docker --version
 
-      - name: Rodando script shell
-        run: ./run.sh
-
-      - name: Criando arquivo
-        run: |
-          echo "$var" > file.txt
-          cat file.txt
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-
+#      - name: Rodando script shell
+#        run: ./run.sh
+#
+#      - name: Criando arquivo
+#        run: |
+#          echo "$var" > file.txt
+#          cat file.txt
+#      - name: Deploy
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: .
+#
 
