@@ -1,16 +1,15 @@
-name: Testando o CI
-
-on:
-  pull_request:
-    branchs:
-      - "master"
-
-jobs:
-  meu-check:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: teste
-
-      - name: O que é esse nome
-        run: echo "init"
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
