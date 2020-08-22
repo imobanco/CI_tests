@@ -23,13 +23,13 @@ jobs:
           cat file.txt
           ./run.sh
 
-      - name: Executa o ./main "$1" "$2" "$3"
-        run: |
-          ./main.sh registry app 0.0.1
-          cat .env.ci
-
-      - name: Executa usa a imagem construída
-        run: docker run registry/app:0.0.1 sh -c 'cat .env'
+#      - name: Executa o ./main "$1" "$2" "$3"
+#        run: |
+#          ./main.sh registry app 0.0.1
+#          cat .env.ci
+#
+#      - name: Executa usa a imagem construída
+#        run: docker run registry/app:0.0.1 sh -c 'cat .env'
 
 
 #      - name: Rodando script shell
