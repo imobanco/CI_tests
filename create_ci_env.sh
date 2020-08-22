@@ -22,7 +22,7 @@ ENV_OUTPUT_FILE_NAME=.env.ci
 RUN_SCRIPT_ECHO_SECRET=echo_secret.sh
 
 echo -e '#!/usr/bin/env bash' > "$RUN_SCRIPT_ECHO_SECRET"
-#echo -e 'set -euxo pipefail' >> "$RUN_SCRIPT_ECHO_SECRET"
+echo -e 'set -euxo pipefail' >> "$RUN_SCRIPT_ECHO_SECRET"
 
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
