@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-18.04
     name: Um job que constrói uma imagem Docker
     env:
-      var_2: ${{ secrets.PEDRO_REPO }}
+      my_secret: ${{ secrets.TESTE_DE_UM_SECRET }}
     steps:
       - name: Cópia o repositório (checkout para o commit atual)
         uses: actions/checkout@v2
@@ -15,9 +15,7 @@ jobs:
       - name: Docker create
         run: |
           docker build --tag pedroregispoar/teste-ci .
-          docker run --env MY_VAR="$var_2" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
-
-
+          docker run --env MY_VAR="$my_secret" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
 
 #      - name: Rodando script shell
 #        run: ./run.sh
