@@ -1,3 +1,5 @@
+name: Testando o que isso
+
 on: [push]
 
 jobs:
