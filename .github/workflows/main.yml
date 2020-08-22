@@ -19,9 +19,10 @@ jobs:
 
       - name:
         run: |
-          echo env_variable_name=${{ secrets.CI_SECRET_KEY }} > file.txt
-          cat file.txt
+#          echo env_variable_name=${{ secrets.CI_SECRET_KEY }} > file.txt
+#          cat file.txt
           ./run.sh
+          cat file.txt
 
 #      - name: Executa o ./main "$1" "$2" "$3"
 #        run: |
