@@ -8,4 +8,8 @@ jobs:
     name: A job to say hello
     steps:
       - name: meu echo
-        run: echo "The time was"
+        env:
+          var: value
+          var_2: value_2
+        run: echo "$var" "$var_2"
+
