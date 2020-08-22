@@ -43,6 +43,11 @@ echo '---> END: cat echo_secret.sh'
 
 ./echo_secret.sh
 
+echo '---> BEGIN: cat echo_secret.sh'
+ls -la
+echo '---> END: cat echo_secret.sh'
+
+
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
 cat "$ENV_OUTPUT_FILE_NAME"
 echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
