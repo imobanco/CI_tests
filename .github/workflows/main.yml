@@ -17,9 +17,14 @@ jobs:
           echo teste1
           ls -la
       - name: Rodando script shell
+        env:
+          var: ${{ secrets.PEDRO_ORG }}
+          var_2: ${{ secrets.PEDRO_REPO }}
         run: ./run.sh
 
       - name: Criando arquivo
+        env:
+          var: ${{ secrets.PEDRO_ORG }}
         run: |
-          echo 'Um texto' > file.txt
+          echo "$var" > file.txt
           cat file.txt
