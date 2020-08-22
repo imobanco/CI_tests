@@ -43,13 +43,13 @@ echo '---> END: cat echo_secret.sh'
 
 ./echo_secret.sh
 
-echo '---> BEGIN: cat echo_secret.sh'
-ls -la
-echo '---> END: cat echo_secret.sh'
+#echo '---> BEGIN: cat echo_secret.sh'
+#ls -la
+#echo '---> END: cat echo_secret.sh'
 
 
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
-cat "$ENV_OUTPUT_FILE_NAME"
+cat .env.ci
 echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
