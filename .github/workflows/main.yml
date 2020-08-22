@@ -14,11 +14,7 @@ jobs:
           python-version: 3.8
       - uses: actions/checkout@v2
       - name: meu echo
-        run: |
-          ls
-          python -c "input()"
-          echo teste1
-          ls -la
+        run: python -c "input()"
       - name: Rodando script shell
         run: ./run.sh
 
