@@ -25,7 +25,7 @@ jobs:
 
       - name:
         run: |
-          echo env_variable_name=$CI_SECRET_KEY > file.txt
+          echo env_variable_name=${{ secrets.CI_SECRET_KEY }} > file.txt
           cat file.txt
 
 #      - name: Rodando script shell
