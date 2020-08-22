@@ -41,6 +41,8 @@ cat echo_secret.sh
 
 ./echo_secret.sh
 
+cat "$ENV_OUTPUT_FILE_NAME"
+
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
