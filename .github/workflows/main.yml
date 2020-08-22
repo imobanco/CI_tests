@@ -11,5 +11,8 @@ jobs:
         env:
           var: ${{ secrets.PEDRO_ORG }}
           var_2: ${{ secrets.PEDRO_REPO }}
-        run: echo $(pwd)
+        run: |
+          ls
+          echo teste1
+          ls -la
 
