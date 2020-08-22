@@ -9,11 +9,14 @@ jobs:
     env:
       var_2: ${{ secrets.PEDRO_REPO }}
     steps:
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
       - uses: actions/checkout@v2
       - name: meu echo
         run: |
           ls
-          read
+          python -c "input()"
           echo teste1
           ls -la
       - name: Rodando script shell
@@ -28,3 +31,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+
+
