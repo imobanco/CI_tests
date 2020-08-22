@@ -18,3 +18,8 @@ jobs:
           ls -la
       - name: Rodando script shell
         run: ./run.sh
+
+      - name: Criando arquivo
+        run: |
+          echo 'Um texto' > file.txt
+          cat file.txt

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "Teste" "$var" "$var_2"
+echo "Teste"$var" "$var_2"
