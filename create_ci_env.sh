@@ -19,14 +19,21 @@ set -euxo pipefail
 ENV_SAMPLE="$1"
 ENV_OUTPUT_FILE_NAME=.env.ci
 
+RUN_SCRIPT_ECHO_SECRET=echo_secret.sh
+
+echo -e '#!/usr/bin/env bash' > "$RUN_SCRIPT_ECHO_SECRET"
+echo -e 'set -euxo pipefail' >> "$RUN_SCRIPT_ECHO_SECRET"
+
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
 for env_variable_name in $(echo "$ENV_VARIABLES"); do
     ci_env_variable_name=secrets.CI_"$env_variable_name"
-    echo $env_variable_name='${{ '"$ci_env_variable_name"' }}' >> "$ENV_OUTPUT_FILE_NAME"
-    # echo secrets."$ci_env_variable_name"
+    echo 'echo '$env_variable_name'=${{ '"$ci_env_variable_name"' }} >> '"$ENV_OUTPUT_FILE_NAME" >> "$RUN_SCRIPT_ECHO_SECRET"
 done
 
+chmod +x echo_secret.sh
+
+./echo_secret.sh
 
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
