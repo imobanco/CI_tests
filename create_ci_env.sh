@@ -54,5 +54,10 @@ echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
+echo '---> BEGIN: cat echo_secret.sh'
+cat .env
+echo '---> END: cat echo_secret.sh'
+
+
 # Limpa o arquivo temporário
  rm "$ENV_OUTPUT_FILE_NAME"
