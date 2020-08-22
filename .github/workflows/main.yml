@@ -12,8 +12,11 @@ jobs:
       - name: Cópia o repositório (checkout para o commit atual)
         uses: actions/checkout@v2
 
-      - name: Docker
-        run: docker --version
+      - name: Docker create
+        run: |
+          docker build --tag pedroregispoar/teste-ci .
+          docker run pedroregispoar/teste-ci sh -c 'cat out.log'
+
 
 #      - name: Rodando script shell
 #        run: ./run.sh
