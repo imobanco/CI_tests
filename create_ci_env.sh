@@ -41,4 +41,4 @@ cat echo_secret.sh
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
 # Limpa o arquivo temporário
-rm "$ENV_OUTPUT_FILE_NAME"
+# rm "$ENV_OUTPUT_FILE_NAME"
