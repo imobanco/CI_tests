@@ -20,7 +20,7 @@ jobs:
       - name:
         run: |
           ./run.sh
-          cat file.txt
+          ls -la
 
 #      - name: Executa o ./main "$1" "$2" "$3"
 #        run: |
