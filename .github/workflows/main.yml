@@ -18,6 +18,12 @@ jobs:
 #          docker run --env MY_VAR="$my_secret" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
 
       - name:
+        env:
+          CI_SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
+          PEDRO_REPO: ${{ secrets.PEDRO_REPO }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
+
         run: |
           ./run.sh
           ls -la
