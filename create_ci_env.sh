@@ -30,7 +30,7 @@ ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delim
 
 for env_variable_name in $(echo "$ENV_VARIABLES"); do
     ci_env_variable_name=secrets.CI_"$env_variable_name"
-    echo 'echo -e '$env_variable_name'=${{ '"$ci_env_variable_name"' }} >> '"$ENV_OUTPUT_FILE_NAME" >> "$RUN_SCRIPT_ECHO_SECRET"
+    echo $env_variable_name="$ci_env_variable_name" >> "$ENV_OUTPUT_FILE_NAME"
 done
 
 echo -e 'exit 0' >> "$RUN_SCRIPT_ECHO_SECRET"
