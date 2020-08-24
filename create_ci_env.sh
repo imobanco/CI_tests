@@ -39,7 +39,7 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
         exit 1
     else
 #        echo "The variable $env_variable_name is set to '${!ci_env_variable_name}'"
-        echo -e $env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
+        echo -e CI_$env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
     fi
 done
 
