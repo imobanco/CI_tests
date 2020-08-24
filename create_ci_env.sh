@@ -46,7 +46,7 @@ ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delim
 
 if [ -z ${!CI_OUTRO+x} ]; then
     echo "The variable CI_OUTRO is unset!"
-    exit 1
+#    exit 1
 else
     echo "The variable CI_OUTRO is set to '${!CI_OUTRO}'"
 fi
