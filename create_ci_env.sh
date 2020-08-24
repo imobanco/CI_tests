@@ -34,7 +34,7 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
     # https://unix.stackexchange.com/a/122848
     # What does "${!var}" mean in shell script?
     # https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
-    if [ -z ${!ci_env_variable_name+x} ]; then
+    if [ -z ${!ci_env_variable_name}  == '' ]; then
         echo "The variable $env_variable_name is unset!"
         exit 1
     else
