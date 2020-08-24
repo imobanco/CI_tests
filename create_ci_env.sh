@@ -51,12 +51,12 @@ ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delim
 #    echo "The variable CI_OUTRO is set to '${!CI_OUTRO}'"
 #fi
 
-echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
-cat "$ENV_OUTPUT_FILE_NAME"
-echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
-
-# Concatena o arquivo `.env.ci` com `.env.hardcoded`
-cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
+#echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
+#cat "$ENV_OUTPUT_FILE_NAME"
+#echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
+#
+## Concatena o arquivo `.env.ci` com `.env.hardcoded`
+#cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
 # Limpa o arquivo temporário
 #rm "$ENV_OUTPUT_FILE_NAME"
