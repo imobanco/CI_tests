@@ -21,28 +21,28 @@ ENV_OUTPUT_FILE_NAME=.env.ci
 
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
-for env_variable_name in $(echo "$ENV_VARIABLES"); do
-  # Não funciona! Tem que fazer em duas partes :|
-  # echo -e $env_variable_name=${!CI_"$env_variable_name"} >> "$ENV_OUTPUT_FILE_NAME"
-
-    ci_env_variable_name=CI_"$env_variable_name"
-
-    # Sobre esse if turbinado:
-    # https://stackoverflow.com/a/13864829
-    # Sobre ${!name[*]}
-    # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
-    # https://unix.stackexchange.com/a/122848
-    # What does "${!var}" mean in shell script?
-    # https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
-    if [ ${!ci_env_variable_name} == 'CI_' ]; then
-        echo "The variable $env_variable_name is unset!"
-        exit 1
-    else
-#        echo "The variable $env_variable_name is set to '${!ci_env_variable_name}'"
-        echo -e CI_$env_variable_name
-        echo -e CI_$env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
-    fi
-done
+#for env_variable_name in $(echo "$ENV_VARIABLES"); do
+#  # Não funciona! Tem que fazer em duas partes :|
+#  # echo -e $env_variable_name=${!CI_"$env_variable_name"} >> "$ENV_OUTPUT_FILE_NAME"
+#
+#    ci_env_variable_name=CI_"$env_variable_name"
+#
+#    # Sobre esse if turbinado:
+#    # https://stackoverflow.com/a/13864829
+#    # Sobre ${!name[*]}
+#    # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+#    # https://unix.stackexchange.com/a/122848
+#    # What does "${!var}" mean in shell script?
+#    # https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
+#    if [ ${!ci_env_variable_name} == 'CI_' ]; then
+#        echo "The variable $env_variable_name is unset!"
+#        exit 1
+#    else
+##        echo "The variable $env_variable_name is set to '${!ci_env_variable_name}'"
+#        echo -e CI_$env_variable_name
+#        echo -e CI_$env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
+#    fi
+#done
 
 if [ -z ${!CI_OUTRO+x} ]; then
     echo "The variable CI_OUTRO is unset!"
