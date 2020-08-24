@@ -43,13 +43,13 @@ ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delim
 #        echo -e CI_$env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
 #    fi
 #done
-
-if [ -z ${!CI_OUTRO+x} ]; then
-    echo "The variable CI_OUTRO is unset!"
-    exit 1
-else
-    echo "The variable CI_OUTRO is set to '${!CI_OUTRO}'"
-fi
+#
+#if [ -z ${!CI_OUTRO+x} ]; then
+#    echo "The variable CI_OUTRO is unset!"
+#    exit 1
+#else
+#    echo "The variable CI_OUTRO is set to '${!CI_OUTRO}'"
+#fi
 
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
 cat "$ENV_OUTPUT_FILE_NAME"
