@@ -26,6 +26,13 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
   # echo -e $env_variable_name=${!CI_"$env_variable_name"} >> "$ENV_OUTPUT_FILE_NAME"
 
     ci_env_variable_name=CI_"$env_variable_name"
+
+    if [ -z ${ci_env_variable_name+x} ]; then
+        echo "$env_variable_name is unset"
+    else
+        echo "$env_variable_name is set to '${!ci_env_variable_name}'"
+    fi
+
     echo -e $env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
 done
 
