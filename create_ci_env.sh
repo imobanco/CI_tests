@@ -48,7 +48,7 @@ if [ -n "$CI_OUTRO" ]; then
     echo "The variable CI_OUTRO is unset!"
 #    exit 1
 else
-    echo "The variable CI_OUTRO is set to '${!CI_OUTRO}'"
+    echo "The variable CI_OUTRO is set to '$CI_OUTRO'"
 fi
 
 #echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
