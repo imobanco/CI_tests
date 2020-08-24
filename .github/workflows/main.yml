@@ -22,6 +22,7 @@ jobs:
           CI_SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
           CI_PEDRO_REPO: ${{ secrets.PEDRO_REPO }}
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
+          CI_OUTRO: ${{ secrets.OUTRO }}
 
         run: |
           ./create_ci_env.sh .env.example
