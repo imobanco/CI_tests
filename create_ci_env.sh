@@ -22,7 +22,8 @@ ENV_OUTPUT_FILE_NAME=.env.ci
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
 for env_variable_name in $(echo "$ENV_VARIABLES"); do
-    echo $env_variable_name=$(CI_"$env_variable_name") >> "$ENV_OUTPUT_FILE_NAME"
+    ci_env_variable_name=CI_"$env_variable_name"
+    echo -e $env_variable_name=$ci_env_variable_name >> "$ENV_OUTPUT_FILE_NAME"
 done
 
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
