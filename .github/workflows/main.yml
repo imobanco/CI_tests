@@ -1,4 +1,4 @@
-name: Constrói e faz envia para AWS ECR
+name: Constrói iamgem Docker e envia para AWS ECR
 
 on: [push]
 
