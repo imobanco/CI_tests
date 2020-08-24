@@ -1,4 +1,4 @@
-name: Testando o que isso
+name: Constrói e faz envia para AWS ECR
 
 on: [push]
 
