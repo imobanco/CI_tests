@@ -27,13 +27,20 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
 
     ci_env_variable_name=CI_"$env_variable_name"
 
+    # Sobre esse if turbinado:
+    # https://stackoverflow.com/a/13864829
+    # Sobre ${!name[*]}
+    # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+    # https://unix.stackexchange.com/a/122848
+    # What does "${!var}" mean in shell script?
+    # https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
     if [ -z ${!ci_env_variable_name+x} ]; then
-        echo "$env_variable_name is unset"
+        echo "The variable $env_variable_name is unset!"
+        exit 1
     else
-        echo "$env_variable_name is set to '${!ci_env_variable_name}'"
+#        echo "The variable $env_variable_name is set to '${!ci_env_variable_name}'"
+        echo -e $env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
     fi
-
-    echo -e $env_variable_name=${!ci_env_variable_name} >> "$ENV_OUTPUT_FILE_NAME"
 done
 
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
