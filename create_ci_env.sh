@@ -22,19 +22,15 @@ ENV_OUTPUT_FILE_NAME=.env.ci
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
 for env_variable_name in $(echo "$ENV_VARIABLES"); do
-    echo $env_variable_name=CI_"$env_variable_name" >> "$ENV_OUTPUT_FILE_NAME"
+    echo $env_variable_name=$CI_"$env_variable_name" >> "$ENV_OUTPUT_FILE_NAME"
 done
 
 echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
 cat "$ENV_OUTPUT_FILE_NAME"
 echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
+
 # Concatena o arquivo `.env.ci` com `.env.hardcoded`
 cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
-
-echo '---> BEGIN: cat echo_secret.sh'
-cat .env
-echo '---> END: cat echo_secret.sh'
-
 
 # Limpa o arquivo temporário
 #rm "$ENV_OUTPUT_FILE_NAME"
