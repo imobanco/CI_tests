@@ -60,4 +60,4 @@ echo '---> END: cat echo_secret.sh'
 
 
 # Limpa o arquivo temporário
- rm "$ENV_OUTPUT_FILE_NAME"
+#rm "$ENV_OUTPUT_FILE_NAME"

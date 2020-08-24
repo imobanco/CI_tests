@@ -24,7 +24,7 @@ jobs:
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
 
         run: |
-          ./run.sh
+          ./create_ci_env.sh .env.example
           ls -la
 
 #      - name: Executa o ./main "$1" "$2" "$3"
