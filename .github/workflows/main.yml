@@ -22,9 +22,11 @@ jobs:
           CI_SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
           CI_PEDRO_REPO: ${{ secrets.PEDRO_REPO }}
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
-
+          CI_AWS_REGISTRY: ${{ secrets.AWS_REGISTRY }}
+          CI_IMAGE: ${{ secrets.IMAGE }}
+          CI_TAG: ${{ secrets.TAG }}
         run: |
-          ./main.sh 415844930261.dkr.ecr.us-east-1.amazonaws.com imopay-api 0.0.1
+          ./main.sh "$CI_AWS_REGISTRY" "$CI_IMAGE" "$CI_TAG"
           ls -la
 
 #      - name: Executa o ./main "$1" "$2" "$3"
