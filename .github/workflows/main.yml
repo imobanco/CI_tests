@@ -28,7 +28,8 @@ jobs:
           CI_TAG: ${{ secrets.TAG }}
         run: |
           ./main.sh "$CI_AWS_REGISTRY" "$CI_IMAGE" "$CI_TAG"
-          ls -la
+          docker images
+          docker run "$CI_AWS_REGISTRY"/"$CI_IMAGE":"$CI_TAG" sh -c 'cat .env'
 
 #      - name: Executa o ./main "$1" "$2" "$3"
 #        run: |
