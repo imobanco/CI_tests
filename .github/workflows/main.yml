@@ -12,10 +12,11 @@ jobs:
       - name: Cópia o repositório (checkout para o commit atual)
         uses: actions/checkout@v2
 
-#      - name: Docker create
-#        run: |
-#          docker build --tag pedroregispoar/teste-ci .
-#          docker run --env MY_VAR="$my_secret" pedroregispoar/teste-ci sh -c 'cat out.log && echo $MY_VAR'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name:
         env:
@@ -52,4 +53,3 @@ jobs:
 #          github_token: ${{ secrets.GITHUB_TOKEN }}
 #          publish_dir: .
 #
-
