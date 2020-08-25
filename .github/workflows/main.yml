@@ -18,39 +18,16 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-          
+
       - name:
         env:
           CI_SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
           CI_PEDRO_REPO: ${{ secrets.PEDRO_REPO }}
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
-          # Teste
+          # Argumentos do script main.sh
           CI_AWS_REGISTRY: ${{ secrets.AWS_REGISTRY }}
           CI_IMAGE: ${{ secrets.IMAGE }}
           CI_TAG: ${{ secrets.TAG }}
         run: |
           ./main.sh "$CI_AWS_REGISTRY" "$CI_IMAGE" "$CI_TAG"
           docker run "$CI_AWS_REGISTRY"/"$CI_IMAGE":"$CI_TAG" sh -c 'echo --- && cat .env'
-
-#      - name: Executa o ./main "$1" "$2" "$3"
-#        run: |
-#          ./main.sh registry app 0.0.1
-#          cat .env.ci
-#
-#      - name: Executa usa a imagem construída
-#        run: docker run registry/app:0.0.1 sh -c 'cat .env'
-
-
-#      - name: Rodando script shell
-#        run: ./run.sh
-#
-#      - name: Criando arquivo
-#        run: |
-#          echo "$var" > file.txt
-#          cat file.txt
-#      - name: Deploy
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: .
-#
