@@ -43,12 +43,12 @@ for env_variable_name in $(echo "$ENV_VARIABLES"); do
     fi
 done
 
-#echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
-#cat "$ENV_OUTPUT_FILE_NAME"
-#echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
-#
-## Concatena o arquivo `.env.ci` com `.env.hardcoded`
-#cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
+echo '---> BEGIN: cat "$ENV_OUTPUT_FILE_NAME"'
+cat "$ENV_OUTPUT_FILE_NAME"
+echo '---> END: cat "$ENV_OUTPUT_FILE_NAME"'
+
+# Concatena o arquivo `.env.ci` com `.env.hardcoded`
+cat "$ENV_OUTPUT_FILE_NAME" .env.hardcoded > .env
 
 # Limpa o arquivo temporário
 #rm "$ENV_OUTPUT_FILE_NAME"
