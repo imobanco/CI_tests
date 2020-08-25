@@ -24,7 +24,7 @@ jobs:
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
 
         run: |
-          ./create_ci_env.sh .env.example
+          ./main.sh 415844930261.dkr.ecr.us-east-1.amazonaws.com imopay-api 0.0.1
           ls -la
 
 #      - name: Executa o ./main "$1" "$2" "$3"
