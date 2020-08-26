@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
-#set -euxo pipefail
+set -euxo pipefail
 
 # Deve ser chamado: ./create_ci_env.sh input_env_file_name output_env_file_name
 #
@@ -22,8 +22,8 @@ ENV_OUTPUT_FILE_NAME=.env.ci
 ENV_VARIABLES=$(grep '\S' "$ENV_SAMPLE" | grep --invert-match '^#' | cut --delimiter='=' --fields=1)
 
 for env_variable_name in $(echo "$ENV_VARIABLES"); do
-  # Não funciona! Tem que fazer em duas partes :|
-  # echo -e $env_variable_name=${!CI_"$env_variable_name"} >> "$ENV_OUTPUT_FILE_NAME"
+    # Não funciona! Tem que fazer em duas partes :|
+    # echo -e $env_variable_name=${!CI_"$env_variable_name"} >> "$ENV_OUTPUT_FILE_NAME"
 
     ci_env_variable_name=CI_"$env_variable_name"
 
