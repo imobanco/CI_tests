@@ -12,19 +12,19 @@ jobs:
       - name: Cópia o repositório (checkout para o commit atual)
         uses: actions/checkout@v2
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+#      - name: Configure AWS Credentials
+#        uses: aws-actions/configure-aws-credentials@v1
+#        with:
+#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          aws-region: us-east-1
 
       - name:
         env:
           CI_SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
           CI_PEDRO_REPO: ${{ secrets.PEDRO_REPO }}
           CI_TESTE_DE_UM_SECRET: ${{ secrets.TESTE_DE_UM_SECRET }}
-          
+
           # Argumentos do script main.sh
           CI_AWS_REGISTRY: ${{ secrets.AWS_REGISTRY }}
           CI_IMAGE: ${{ secrets.IMAGE }}
